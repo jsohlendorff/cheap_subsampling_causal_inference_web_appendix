@@ -26,12 +26,13 @@ mm$model <- lava_model
 ## simulate data
 
 ## get Ltmle data
+sample_size <- 1000
 set.seed(6)
-data <- get_sim_data(mm, 1000)
+data <- get_sim_data(mm, sample_size)
 
 ## get data for use in Ltmle, i.., split up separately into the outcomes, regimen, baseline covariates and time-varying covariates
 set.seed(6)
-data <- get_sim_data(mm, 1000, TRUE)
+data <- get_sim_data(mm, sample_size, TRUE)
 
 x <- prepare_Ltmle(
   outcome_data = data$outcome,
@@ -55,10 +56,11 @@ f
 bs <- 5
 ## cheap_subsampling_ci
 k_m <- 0.632
+m_val <- floor(k_m * sample_size)
 res_subsampling <- list()
 for (b in seq_len(bs)) {
   ## subsample data of size m
-  subsample <- sample(1:nrow(data$outcome), size = floor(k_m * nrow(data$outcome)), replace = FALSE)
+  subsample <- sample(1:sample_size, size = m_val, replace = FALSE)
   formatted_data_sub <-
     lapply(data, function(x) {
       x[subsample, ]
@@ -86,12 +88,12 @@ for (b in seq_len(bs)) {
 res_subsampling <- rbindlist(res_subsampling)
 
 ## look at causal contrast
-get_cheap_subsampling_ci(f[Target_parameter== "ATE", estimate], res_subsampling[Target_parameter == "ATE", estimate], floor(k_m * nrow(data$outcome)), nrow(data$outcome), 0.05)
+get_cheap_subsampling_ci(f[Target_parameter== "ATE", estimate], res_subsampling[Target_parameter == "ATE", estimate], m_val, sample_size, 0.05)
 
 res_non_parametric_bootstrap <- list()
 for (b in seq_len(bs)) {
   ## subsample data of size m
-  bootstrap_sample <- sample(1:nrow(data$outcome), size = nrow(data$outcome), replace = TRUE)
+  bootstrap_sample <- sample(1:sample_size, size = sample_size, replace = TRUE)
   formatted_data_boot <-
     lapply(data, function(x) {
       temp <- x[bootstrap_sample, ]
