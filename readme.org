@@ -174,7 +174,7 @@ Target_parameter Estimator   estimate    std.err
 
 We also provide a basic example, showing how the
 Cheap Subsampling/Bootstrap confidence intervals
-may be used in practice for $B=5½$ and $m=\lfoor 0.632 n \rfloor$
+may be used in practice for $B=5$ and $m=\lfloor 0.632 n \rfloor$
 for the treatment contrast between those that are treated continuously
 throughout the period and those that are never treated in the period:
 #+begin_src R :results output :exports both :session my-session
