@@ -136,27 +136,28 @@ code has been taken from an altered version of the
 We keep it in this repository for reproducibility purposes.
 
 #+begin_src R :results output :exports both :session my-session
-## get data for use in Ltmle, i.., split up separately into the outcomes, regimen, baseline covariates and time-varying covariates
-data <- get_sim_data(mm, sample_size, TRUE, data)
-## get LTMLE estimates
-x <- prepare_Ltmle(
-  outcome_data = data$outcome,
-  regimen_data = data$regimen,
-  baseline_data = data$baseline_covariates,
-  timevar_data = data$time_covariates,
-  time_horizon = 3,
-  censored_label = 0,
-  name_outcome = "heart_failure",
-  name_regimen = "GS",
-  name_censoring = "Censored",
-  name_competing_risk = "Dead",
-  abar = list(treat=c(1,1,1), control = c(0,0,0)),
-  SL.library = "glm",
-  verbose = FALSE,
-  gbounds = c(0,1)
-)
-f<-summary(do.call("Ltmle", x))
-f
+  ## get data for use in Ltmle, i.e. , split up separately into the outcomes,
+  ## regimen, baseline covariates, and time-varying covariates
+  data <- get_sim_data(mm, sample_size, TRUE, data)
+  ## get LTMLE estimates
+  x <- prepare_Ltmle(
+    outcome_data = data$outcome,
+    regimen_data = data$regimen,
+    baseline_data = data$baseline_covariates,
+    timevar_data = data$time_covariates,
+    time_horizon = 3,
+    censored_label = 0,
+    name_outcome = "heart_failure",
+    name_regimen = "GS",
+    name_censoring = "Censored",
+    name_competing_risk = "Dead",
+    abar = list(treat=c(1,1,1), control = c(0,0,0)),
+    SL.library = "glm",
+    verbose = FALSE,
+    gbounds = c(0,1)
+  )
+  f<-summary(do.call("Ltmle", x))
+  f
 #+end_src
 
 #+RESULTS:
@@ -186,6 +187,7 @@ throughout the period and those that are never treated in the period:
   k_m <- 0.632
   m_val <- floor(k_m * sample_size)
   res_subsampling <- list()
+  set.seed(8)
   for (b in seq_len(bs)) {
     ## subsample data of size m
     subsample <- sample(1:sample_size, size = m_val, replace = FALSE)
@@ -220,6 +222,7 @@ throughout the period and those that are never treated in the period:
 
   ## cheap_bootstrap_ci
   res_non_parametric_bootstrap <- list()
+  set.seed(2)
   for (b in seq_len(bs)) {
     ## non-parametric bootstrap resample 
     bootstrap_sample <- sample(1:sample_size, size = sample_size, replace = TRUE)
