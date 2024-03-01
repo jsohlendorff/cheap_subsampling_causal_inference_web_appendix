@@ -2,6 +2,8 @@
 # :header-args: :dir ~/cheap_subsampling_causal_inference_web_appendix
 # :END:
 
+* Web appendix: Implementation details of LTMLE/Cheap Subsampling/Bootstrap confidence intervals
+
 We provide the details of the estimation procedure for the LTMLE
 and the Cheap Bootstrap/Subsampling confidence interval in the following paragraph.
 The data generating mechanism may be found in the *data_generating_mechanism.R* file, where
