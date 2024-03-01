@@ -46,84 +46,32 @@ data
 
 #+RESULTS:
 #+begin_example
-pnr    sex education agegroups tertile_income
-      <int> <fctr>    <fctr>    <fctr>         <fctr>
-   1:     1 Female    Medium     60-65      Income_q1
-   2:     2   Male      High     60-65      Income_q3
-   3:     3 Female    Medium     65-70      Income_q1
-   4:     4 Female    Medium     80-85      Income_q2
-   5:     5   Male    Medium     70-75      Income_q2
-  ---                                                
- 996:   996 Female      High  below 45      Income_q1
- 997:   997   Male      High     70-75      Income_q1
- 998:   998 Female      High     45-50      Income_q3
- 999:   999   Male    Medium     60-65      Income_q1
-1000:  1000 Female    Medium     50-55      Income_q2
-      index_heart_failure diabetes_duration
-                   <fctr>            <fctr>
-   1:                  No          above 10
-   2:                  No              5-10
-   3:                  No           below 5
-   4:                  No              5-10
-   5:                  No              5-10
-  ---                                      
- 996:                  No          above 10
- 997:                  No           below 5
- 998:                  No              5-10
- 999:                  No           below 5
-1000:                 Yes          above 10
-      secondline_duration first_2ndline insulin_0  GS_0
-                   <fctr>        <fctr>     <int> <int>
-   1:             above 3         other         1     1
-   2:             above 3         other         0     0
-   3:             below 1         other         0     0
-   4:                 1-3         other         0     0
-   5:                 1-3         other         0     1
-  ---                                                  
- 996:             above 3         other         1     1
- 997:             above 3         other         0     0
- 998:             above 3          glp1         0     0
- 999:                 1-3         other         0     0
-1000:             below 1         other         0     0
-      Censored_1 heart_failure_1 Dead_1 insulin_1  GS_1
-           <int>           <int>  <int>     <int> <int>
-   1:          1               0      0         0     0
-   2:          1               0      0         0     1
-   3:          1               0      0         0     0
-   4:          1               0      0         0     0
-   5:          1               0      0         1     0
-  ---                                                  
- 996:          1               0      0         0     1
- 997:          1               0      0         0     1
- 998:          1               0      0         0     0
- 999:          1               0      0         0     0
-1000:          1               1     NA        NA    NA
-      Censored_2 heart_failure_2 Dead_2 insulin_2  GS_2
-           <int>           <int>  <int>     <int> <int>
-   1:          1               1     NA        NA    NA
-   2:          1               0      0         0     0
-   3:          1               0      0         0     0
-   4:          1               0      0         0     1
-   5:          1               0      0         1     0
-  ---                                                  
- 996:          1               0      0         0     0
- 997:          0              NA     NA        NA    NA
- 998:          1               0      0         0     0
- 999:          1               0      0         0     1
-1000:          1               1     NA        NA    NA
-      Censored_3 heart_failure_3
-           <int>           <int>
-   1:          1               1
-   2:          1               1
-   3:          1               0
-   4:          1               0
-   5:          1               0
-  ---                           
- 996:          1               0
- 997:          0              NA
- 998:          1               0
- 999:          1               1
-1000:          1               1
+pnr    sex education agegroups tertile_income index_heart_failure diabetes_duration secondline_duration first_2ndline insulin_0  GS_0 Censored_1 heart_failure_1 Dead_1 insulin_1  GS_1 Censored_2 heart_failure_2 Dead_2 insulin_2
+      <int> <fctr>    <fctr>    <fctr>         <fctr>              <fctr>            <fctr>              <fctr>        <fctr>     <int> <int>      <int>           <int>  <int>     <int> <int>      <int>           <int>  <int>     <int>
+   1:     1 Female    Medium     60-65      Income_q1                  No          above 10             above 3         other         1     1          1               0      0         0     0          1               1     NA        NA
+   2:     2   Male      High     60-65      Income_q3                  No              5-10             above 3         other         0     0          1               0      0         0     1          1               0      0         0
+   3:     3 Female    Medium     65-70      Income_q1                  No           below 5             below 1         other         0     0          1               0      0         0     0          1               0      0         0
+   4:     4 Female    Medium     80-85      Income_q2                  No              5-10                 1-3         other         0     0          1               0      0         0     0          1               0      0         0
+   5:     5   Male    Medium     70-75      Income_q2                  No              5-10                 1-3         other         0     1          1               0      0         1     0          1               0      0         1
+  ---                                                                                                                                                                                                                                      
+ 996:   996 Female      High  below 45      Income_q1                  No          above 10             above 3         other         1     1          1               0      0         0     1          1               0      0         0
+ 997:   997   Male      High     70-75      Income_q1                  No           below 5             above 3         other         0     0          1               0      0         0     1          0              NA     NA        NA
+ 998:   998 Female      High     45-50      Income_q3                  No              5-10             above 3          glp1         0     0          1               0      0         0     0          1               0      0         0
+ 999:   999   Male    Medium     60-65      Income_q1                  No           below 5                 1-3         other         0     0          1               0      0         0     0          1               0      0         0
+1000:  1000 Female    Medium     50-55      Income_q2                 Yes          above 10             below 1         other         0     0          1               1     NA        NA    NA          1               1     NA        NA
+       GS_2 Censored_3 heart_failure_3
+      <int>      <int>           <int>
+   1:    NA          1               1
+   2:     0          1               1
+   3:     0          1               0
+   4:     1          1               0
+   5:     0          1               0
+  ---                                 
+ 996:     0          1               0
+ 997:    NA          0              NA
+ 998:     0          1               0
+ 999:     1          1               1
+1000:    NA          1               1
 #+end_example
 
 We now demonstrate
@@ -161,20 +109,14 @@ We keep it in this repository for reproducibility purposes.
 #+end_src
 
 #+RESULTS:
-#+begin_example
-Target_parameter Estimator   estimate    std.err
-             <char>    <char>      <num>      <num>
-1:        Mean(A=1)      tmle  0.3115874 0.04845545
-2:        Mean(A=0)      tmle  0.4487031 0.05120906
-3:              ATE      tmle -0.1371157 0.07003415
-4:            Ratio      tmle  0.6944177 0.19167729
-        lower        upper       pvalue
-        <num>        <num>        <num>
-1:  0.2166164 0.4065582972 1.272779e-10
-2:  0.3483352 0.5490710128 1.915063e-18
-3: -0.2743802 0.0001486821 5.024867e-02
-4:  0.4769411 1.0110596389 5.709518e-02
-#+end_example
+: Loading required namespace: matrixStats
+: Loading required package: matrixStats
+: Target_parameter Estimator   estimate    std.err      lower        upper       pvalue
+:              <char>    <char>      <num>      <num>      <num>        <num>        <num>
+: 1:        Mean(A=1)      tmle  0.3115874 0.04845545  0.2166164 0.4065582972 1.272779e-10
+: 2:        Mean(A=0)      tmle  0.4487031 0.05120906  0.3483352 0.5490710128 1.915063e-18
+: 3:              ATE      tmle -0.1371157 0.07003415 -0.2743802 0.0001486821 5.024867e-02
+: 4:            Ratio      tmle  0.6944177 0.19167729  0.4769411 1.0110596389 5.709518e-02
 
 We also provide a basic example, showing how the
 Cheap Subsampling/Bootstrap confidence intervals
@@ -260,9 +202,9 @@ throughout the period and those that are never treated in the period:
 
 #+RESULTS:
 : [1] "95% Cheap Subsampling CI:"
-: [1] -0.33335041  0.05911894
+: [1] -0.3902967  0.1160652
 : [1] "95% Cheap Bootstrap CI:"
-: [1] -0.22397980 -0.05025168
+: [1] -0.31777698  0.04354551
 
 * References
 
