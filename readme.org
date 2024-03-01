@@ -127,7 +127,7 @@ pnr    sex education agegroups tertile_income
 We now demonstrate
 how we find parameter estimates with the LTMLE
 for our simulated data set. The default behavior
-of the *prepare_Ltmle* is that it uses the entire history,
+of the *prepare_Ltmle* function is that it uses the entire history,
 additively. Note that the LTMLE
 code has been taken from an altered version of the
 *tmle* package (Lendle et al., 2017), which may be found here: [[https://github.com/tagteam/TMLE_for_breakfast/tree/main][TMLE for breakfast]].
