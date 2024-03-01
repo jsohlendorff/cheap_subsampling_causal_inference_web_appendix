@@ -130,7 +130,7 @@ for our simulated data set. The default behavior
 of the *prepare_Ltmle* is that it uses the entire history,
 additively. Note that the LTMLE
 code has been taken from an altered version of the
-*tmle* package citep:lendleLtmlePackageImplementing2017, which may be found here: [[https://github.com/tagteam/TMLE_for_breakfast/tree/main][TMLE for breakfast]].
+*tmle* package (Lendle et al., 2017), which may be found here: [[https://github.com/tagteam/TMLE_for_breakfast/tree/main][TMLE for breakfast]].
 We keep it in this repository for reproducibility purposes.
 
 #+begin_src R :results output :exports both :session my-session
@@ -259,6 +259,8 @@ throughout the period and those that are never treated in the period:
 : [1] "95% Cheap Bootstrap CI:"
 : [1] -0.22397980 -0.05025168
 
-bibliographystyle:chicago
-bibliography:ref.bib
+* References
 
+Lendle, S. D., J. Schwab, M. L. Petersen, and M. J. van der Laan (2017, Octo-
+ber). Ltmle: An R Package Implementing Targeted Minimum Loss-Based
+Estimation for Longitudinal Data. /Journal of Statistical Software/ 81, 1–21.
