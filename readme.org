@@ -261,6 +261,6 @@ throughout the period and those that are never treated in the period:
 
 * References
 
-Lendle, S. D., J. Schwab, M. L. Petersen, and M. J. van der Laan (2017, Octo-
-ber). Ltmle: An R Package Implementing Targeted Minimum Loss-Based
+Lendle, S. D., J. Schwab, M. L. Petersen, and M. J. van der Laan (2017, October).
+Ltmle: An R Package Implementing Targeted Minimum Loss-Based
 Estimation for Longitudinal Data. /Journal of Statistical Software/ 81, 1–21.
