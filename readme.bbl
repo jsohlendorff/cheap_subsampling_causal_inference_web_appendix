@@ -1,0 +1,11 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Lendle, Schwab, Petersen, and van~der
+  Laan}{Lendle et~al.}{2017}]{lendleLtmlePackageImplementing2017}
+Lendle, S.~D., J.~Schwab, M.~L. Petersen, and M.~J. van~der Laan (2017,
+  October).
+\newblock Ltmle: {{An R Package Implementing Targeted Minimum Loss-Based
+  Estimation}} for {{Longitudinal Data}}.
+\newblock {\em Journal of Statistical Software\/}~{\em 81}, 1--21.
+
+\end{thebibliography}
